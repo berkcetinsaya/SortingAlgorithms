@@ -3,7 +3,7 @@ I created a program which has all sorting algorithms. There are three submodules
 
 [1]: https://asciinema.org/a/87259 "Terminal Video"
 
-##Usage
+## Usage
 
 ~~~~~ 
 $ g++ source.cpp -o sorting.out
