@@ -5,7 +5,6 @@
 
 #include <iostream>
 #include <ctime>
-#include <curses.h>
 #include <fstream>
 #include <algorithm>
 #include <functional>
@@ -174,12 +173,12 @@ void ran(){
 	srand((unsigned)time(0));
 	ofstream FS, FB, FI, FM, FQ, FH;
 
-	FS.open("arrayS.txt", ios::trunc);
-	FB.open("arrayB.txt", ios::trunc);
-	FI.open("arrayI.txt", ios::trunc);
-	FM.open("arrayM.txt", ios::trunc);
-	FQ.open("arrayQ.txt", ios::trunc);
-	FH.open("arrayH.txt", ios::trunc);
+	FS.open("files/arrayS.txt", ios::trunc);
+	FB.open("files/arrayB.txt", ios::trunc);
+	FI.open("files/arrayI.txt", ios::trunc);
+	FM.open("files/arrayM.txt", ios::trunc);
+	FQ.open("files/arrayQ.txt", ios::trunc);
+	FH.open("files/arrayH.txt", ios::trunc);
 	for (int i = 0; i < n; i++){
 		B[i] = (rand() % 10000) + 1;
 		S[i] = B[i];
@@ -217,12 +216,12 @@ void ran(){
 void sorted(){
 	ofstream FS, FB, FI, FM, FQ, FH;
 
-	FS.open("sortarrayS.txt", ios::trunc);
-	FB.open("sortarrayB.txt", ios::trunc);
-	FI.open("sortarrayI.txt", ios::trunc);
-	FM.open("sortarrayM.txt", ios::trunc);
-	FQ.open("sortarrayQ.txt", ios::trunc);
-	FH.open("sortarrayH.txt", ios::trunc);
+	FS.open("files/sortarrayS.txt", ios::trunc);
+	FB.open("files/sortarrayB.txt", ios::trunc);
+	FI.open("files/sortarrayI.txt", ios::trunc);
+	FM.open("files/sortarrayM.txt", ios::trunc);
+	FQ.open("files/sortarrayQ.txt", ios::trunc);
+	FH.open("files/sortarrayH.txt", ios::trunc);
 	for (int i = 0; i < n; i++){
 		B[i] = i;
 		S[i] = B[i];
@@ -259,12 +258,12 @@ void sorted(){
 void reversed(){
 	ofstream FS, FB, FI, FM, FQ, FH;
 
-	FS.open("revarrayS.txt", ios::trunc);
-	FB.open("revarrayB.txt", ios::trunc);
-	FI.open("revarrayI.txt", ios::trunc);
-	FM.open("revarrayM.txt", ios::trunc);
-	FQ.open("revarrayQ.txt", ios::trunc);
-	FH.open("revarrayH.txt", ios::trunc);
+	FS.open("files/revarrayS.txt", ios::trunc);
+	FB.open("files/revarrayB.txt", ios::trunc);
+	FI.open("files/revarrayI.txt", ios::trunc);
+	FM.open("files/revarrayM.txt", ios::trunc);
+	FQ.open("files/revarrayQ.txt", ios::trunc);
+	FH.open("files/revarrayH.txt", ios::trunc);
 	for (int i = 0; i < n; i++){
 		B[i] = i;
 	}
