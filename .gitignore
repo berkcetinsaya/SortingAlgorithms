@@ -350,4 +350,4 @@ MigrationBackup/
 
 **/*.DS_Store*
 **/*.txt*
-**/*.out*
+*.out
