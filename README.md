@@ -9,16 +9,19 @@ Analysis of Algorithms is the area of computer science that provides tools to an
 It recognizes limitations of various algorithms for solving a problem, to understand relationship between problem size and running time, to learn how to analyze an algorithm's running time without coding it, to learn techniques for writing more efficient code and to recognize bottlenecks in code as well as which parts of code are easiest to optimize.
 
 &nbsp;&nbsp;&nbsp;&nbsp;
-This README file divided into three part. In the first part, I am going to explain all codes and complexities of the sorting algorithms such as the best, worst and average cases. Secondly, I will show you a table which contains the average execution times with maximum and minimum times. In the last part, I will leave some comments about efficiency of the sorting algorithms.
+This README file divided into three part. In the first part, I am going to explain the algorithms and complexities of the sorting algorithms such as the best, worst and average cases. Secondly, I will show you a table which contains the average execution times with maximum and minimum times. In the last part, I will leave some comments about efficiency of the sorting algorithms.
 
 > #### The algorithms used in this project:
 >
-> - Bubble sort
-> - Selection sort
-> - Insertion sort
-> - Quick sort ̰
-> - Heap sort
-> - Merge sort
+> - [Bubble sort](###-**Bubble-sort**)
+> - [Selection sort](###-**Selection-sort**)
+> - [Insertion sort](###-**Insertion-sort**)
+> - [Merge sort ̰](###-**Merge-sort**)
+> - [Quick sort](###-**Quick-sort**)
+> - [Heap sort](###-**Heap-sort**)
+
+## **Algorithms**
+<hr>
 
 ### **Bubble sort**
 
@@ -49,6 +52,7 @@ It is sorted now, but the algorithm does not know; therefore, the code runs unti
 
 ### **Selection sort**
 
+&nbsp;&nbsp;&nbsp;&nbsp;
 The other sorting algorithm is selection sort. For instance, we have an array which has 5 numbers and they are “7 5 9 3 6”. Now, we assume that our first element is the minimum element of that array. Then, we start to check if it is really the minimum element? ( **7** 5 9 3 6 ) → 7 is the minimum for the first run. When it runs, check the 7 and 5. Now, program understand 7 is not the minimum element. It should be 5. Then, it assigns 5 as the minimum element. After checking all array elements, it decides 3 is the minimum and put 3 to the beginning of the array and 7 goes to 3's old place. All processes are working like that;
 
 ```cpp
@@ -75,6 +79,7 @@ void selection(){
 
 ### **Insertion sort**
 
+&nbsp;&nbsp;&nbsp;&nbsp;
 Another sorting algorithm is insertion sort. Insertion sort removes one element from the input data, finds the location it belongs within the sorted list, and inserts it there. It repeats until no input elements remain. If an example should be given, we have an array with 8 elements.
 
 ```cpp
@@ -92,39 +97,200 @@ void insertion(){
 }
 ```
 
-<u>2</u> 6 3 8 4 1 5 0
-<br>**2** <u>6</u> 3 8 4 1 5 0 
-<br>2 **6** <u>3</u> 8 4 1 5 0 
-<br>2 3 **6** <u>8</u> 4 1 5 0 
-<br>2 3 6 **8** <u>4</u> 1 5 0
-<br>2 3 **4** 6 8 <u>1</u> 5 0
-<br>**1** 2 3 4 6 8 <u>5</u> 0
-<br>1 2 3 4 **5** 6 8 <u>0</u>
+*2* 6 3 8 4 1 5 0
+<br>**2** *6* 3 8 4 1 5 0 
+<br>2 **6** *3* 8 4 1 5 0 
+<br>2 3 **6** *8* 4 1 5 0 
+<br>2 3 6 **8** *4* 1 5 0
+<br>2 3 **4** 6 8 *1* 5 0
+<br>**1** 2 3 4 6 8 *5* 0
+<br>1 2 3 4 **5** 6 8 *0*
 <br>**0** 1 2 3 4 5 6 8
 
+### **Merge sort**
+
+&nbsp;&nbsp;&nbsp;&nbsp;
+Another sorting algorithm is merge sort. First divide the list into the smallest unit (1 element), then compare each element with the adjacent list to sort and merge the two adjacent lists. Finally, all the elements are sorted and merged. 
+
+```cpp
+void Merge(int a[], int low, int mid, int high){
+    int i = low, j = mid + 1, k = low, s;
+    while (i <= mid && j <= high){
+        if (a[i] < a[j]){
+            tempBforMer[k] = a[i];
+            i++;
+        }
+        else{
+            tempBforMer[k] = a[j];
+            j++;
+        }
+        k++;
+    }
+    if (i > mid){
+        for (s = j; s <= high; s++){
+            tempBforMer[k] = a[s];
+            k++;
+        }
+    }
+    else{
+        for (s = i; s <= mid; s++){
+            tempBforMer[k] = a[s];
+            k++;
+        }
+    }
+    for (k = low; k <= high; k++){
+        a[k] = tempBforMer[k];
+    }
+}
+void MergeSort(int a[], int low, int high){
+    int mid;
+    if (low < high){
+        mid = (low + high) / 2;
+        MergeSort(a, low, mid);
+        MergeSort(a, mid + 1, high);
+        Merge(a, low, mid, high);
+    }
+}
+```
+
+&nbsp;&nbsp;&nbsp;&nbsp;
+For example, we have “ 54, 26, 89, 45, 67, 82, 0, 4 ”. We divide it into two parts such as 54-26-89-45 and 67-82-0-4. Then, we divide them again. 54-26, 89-45, 67-82, 0-4. Again and again. 54 26, 89 45, 67 82, 0 4. Now, sort them. 26-54, 45-89, 67-82, 0-4. Then, merge and sort. 26-45-54-89, 0-4-67-82. For the last time again. 0-4-26-45-54-67-82-89. Now, they are sorted. It is the main idea of the algorithm.
 
 
+### **Quick sort**
+
+&nbsp;&nbsp;&nbsp;&nbsp;
+Another sorting algorithm is quick sort. Quick sort is a divide and conquer algorithm. It first divides a large array into two smaller sub-arrays: the low elements and the high elements. Quick sort can then recursively sort the sub-arrays. First, we pick an element which called pivot. Order again. The elements smaller than pivot element, placed before the pivot element. The elements greater than the pivot elements should be placed after the pivot element. It is called partition operation. By using that, they will be sorted recursively. 
+
+### **Heap sort**
+
+&nbsp;&nbsp;&nbsp;&nbsp;
+And the last one is heap sort. Heap sort is a comparison-based sorting algorithm. For example, we have (8,7,5,3,10,9,4,6). Now, we should put them to a heap like that
+
+|   |   |   |    |   |   |   |   |   |
+|:-:|:-:|:-:|:--:|:-:|---|---|---|---|
+|   |   |   |    | 8 |   |   |   |   |
+|   |   | 7 |    |   |   | 5 |   |   |
+|   | 3 |   | 10 |   | 9 |   | 4 |   |
+| 6 |   |   |    |   |   |   |   |   |
+
+then, we should swap 7-10 because children can not be greater than parents.
+
+|   |   |   |   |    |   |   |   |   |
+|:-:|:-:|:-:|:-:|:--:|---|---|---|---|
+|   |   |   |   | 10 |   |   |   |   |
+|   |   | 8 |   |    |   | 9 |   |   |
+|   | 6 |   | 7 |    | 5 |   | 4 |   |
+| 3 |   |   |   |    |   |   |   |   |
+
+After that, start to sort this array (10, 8, 9, 6, 7, 5, 4, 3).
+|Heap|Operation|Array|
+|-|-|-|
+**10**, 8, 9, 6, 7, 5, 4, **3** |swap 10-3 to delete 10 from heap.|
+|3, 8, 9, 6, 7, 5, 4, **10** |delete 10 from heap and add to array.| (10)|
+|**3**, 8, **9**, 6, 7, 5, 4 |swap 3-9|
+|9, 8, **3**, 6, 7, **5**, 4 |swap 3-5|
+|**9**, 8, 5, 6, 7, 3, **4** |swap 9-4|
+|4, 8, 5, 6, 7, 3, **9** |delete 9 |(9,10)|
+|**4**, **8**, 5, 6, 7, 3 |swap 4-8|
+|8, **4**, 5, 6, **7**, 3 |swap 4-7|
+|**8**, 7, 5, 6, 4, **3** |swap 8-3|
+|3, 7, 5, 6, 4, **8** |delete 8 |(8,9,10)|
+|**3**, **7**, 5, 6, 4 |swap 3-7|
+|7, **3**, 5, **6**, 4 |swap 3-6|
+|**7**, 6, 5, 3, **4** |swap 7-4|
+|4, 6, 5, 3, **7** |delete 7| (7,8,9,10)|
+|**4**, **6**, 5, 3 |swap 4-6|
+|**6**, 4, 5, **3** |swap 6-3|
+|3, 4, 5, **6** |delete 6| (6,7,8,9,10)|
+|**3**, 4, **5** |swap 3-5|
+|**5**, 4, **3** |swap 5-3|
+|3, 4, **5** |delete 5 |(5,6,7,8,9,10)|
+|**3**, **4** |swap 3-4|
+|**4**, **3** |swap 4-3|
+|3, **4** |delete 4 |(4,5,6,7,8,9,10)|
+|**3** |delete 3 |(3,4,5,6,7,8,9,10)|
 
 
+Array is sorted 3,4,5,6,7,8,9,10.
+
+## **Results**
+<hr>
+
+Additionally, I would like to show you a table which includes time complexities.
+
+|    Algorithm   | Time Complexity: Best | Time Complexity: Average | Time Complexity: Worst |
+|:--------------:|:---------------------:|:------------------------:|:----------------------:|
+|   Bubble sort  |          O(n)         |          O(n^2)          |         O(n^2)         |
+| Selection sort |         O(n^2)        |          O(n^2)          |         O(n^2)         |
+| Insertion sort |          O(n)         |          O(n^2)          |         O(n^2)         |
+|   Merge sort   |      O(n log(n))      |        O(n log(n))       |       O(n log(n))      |
+|   Quick sort   |      O(n log(n))      |        O(n log(n))       |         O(n^2)         |
+|    Heap sort   |      O(n log(n))      |        O(n log(n))       |       O(n log(n))      |
+
+Here is a table containing execution times. I divided that table into three blocks. The first one is for randomly selected 10000 numbers. The second one is for already sorted 10000 numbers such as 0,1,2,3,4,5... etc. The last one for reversed sorted 10000 numbers such as 9999,9998,9997... etc.
+
+<p style="text-align:center;"><b>Randomly selected numbers</b></p>
+
+|                |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |   10  | Average |
+|:--------------:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-------:|
+|   Bubble sort  | 0.420 | 0.383 | 0.399 | 0.375 | 0.389 | 0.391 | 0.388 | 0.388 | 0.399 | 0.389 |  **0.392**  |
+| Selection sort | 0.111 | 0.117 | 0.116 | 0.115 | 0.117 | 0.112 | 0.121 | 0.117 | 0.112 | 0.112 |  **0.115**  |
+| Insertion sort | 0.098 | 0.100 | 0.107 | 0.101 | 0.103 | 0.101 | 0.102 | 0.098 | 0.111 | 0.098 |  **0.102**  |
+|   Merge sort   | 0.003 | 0.003 | 0.003 | 0.002 | 0.003 | 0.002 | 0.003 | 0.002 | 0.003 | 0.002 |  **0.003**  |
+|   Quick sort   | 0.006 | 0.006 | 0.006 | 0.006 | 0.006 | 0.006 | 0.006 | 0.007 | 0.006 | 0.007 |  **0.006**  |
+|    Heap sort   | 0.002 | 0.002 | 0.002 | 0.002 | 0.002 | 0.002 | 0.001 | 0.002 | 0.006 | 0.002 |  **0.002**  |
 
 
+<p style="text-align:center;"><b>Sorted numbers</b></p>
+
+|                |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |   10  | Average |
+|:--------------:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-------:|
+|   Bubble sort  | 0.250 | 0.248 | 0.246 | 0.253 | 0.247 | 0.248 | 0.243 | 0.244 | 0.250 | 0.246 |  **0.248**  |
+| Selection sort | 0.116 | 0.117 | 0.116 | 0.114 | 0.115 | 0.113 | 0.121 | 0.116 | 0.114 | 0.113 |  **0.116**  |
+| Insertion sort | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.001 | 0.000 | 0.000 |  **0.000**  |
+|   Merge sort   | 0.001 | 0.002 | 0.002 | 0.002 | 0.002 | 0.002 | 0.002 | 0.002 | 0.002 | 0.002 |  **0.002**  |
+|   Quick sort   | 0.002 | 0.002 | 0.002 | 0.003 | 0.002 | 0.002 | 0.002 | 0.002 | 0.002 | 0.002 |  **0.002**  |
+|    Heap sort   | 0.001 | 0.002 | 0.001 | 0.002 | 0.002 | 0.002 | 0.002 | 0.002 | 0.002 | 0.002 |  **0.002**  |
+
+
+<p style="text-align:center;"><b>Sorted in reversed order numbers</b></p>
+
+|                |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |   10  | Average |
+|:--------------:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-------:|
+|   Bubble sort  | 0.317 | 0.318 | 0.325 | 0.314 | 0.306 | 0.308 | 0.312 | 0.352 | 0.313 | 0.313 |  **0.318**  |
+| Selection sort | 0.130 | 0.131 | 0.127 | 0.130 | 0.135 | 0.130 | 0.130 | 0.133 | 0.132 | 0.128 |  **0.131**  |
+| Insertion sort | 0.207 | 0.199 | 0.198 | 0.201 | 0.198 | 0.204 | 0.204 | 0.207 | 0.198 | 0.198 |  **0.201**  |
+|   Merge sort   | 0.002 | 0.001 | 0.002 | 0.001 | 0.002 | 0.001 | 0.001 | 0.002 | 0.002 | 0.001 |  **0.002**  |
+|   Quick sort   | 0.003 | 0.003 | 0.004 | 0.003 | 0.004 | 0.003 | 0.003 | 0.004 | 0.003 | 0.003 |  **0.003**  |
+|    Heap sort   | 0.002 | 0.002 | 0.002 | 0.001 | 0.002 | 0.002 | 0.001 | 0.002 | 0.002 | 0.002 |  **0.002**  |
+
+## **Conculusion**
+<hr>
+
+&nbsp;&nbsp;&nbsp;&nbsp;
+As it can be seen, there are some possible results of sorting algorithms. It depends on the array will you sort. If you want to analyze the performance of an algorithm on sorted numbers, you should definitely use the insertion sort algorithm. Because it takes an index and check one by one and there is no greater element in the array; therefore, it does not change anything. Consequently, it is finished quickly. According to the result tables, you can use heap or merge sorting algorithms to sort in minimum time.
 
 </div>
 
-
-
-
-there is a command line video [link][1].
-
-[1]: https://asciinema.org/a/87259 "Terminal Video"
-[bubble_sort]: img/bubble_sort.png "Bubble sort"
-
 ## Usage
 
+For macOS and Linux users, you should execute the command below to compile the source code on your terminal.
 ~~~~~ 
-$ g++ source.cpp -o sorting.out
+g++ source.cpp -o sorting.out
 ~~~~~ 
-
+To execute the program, execute the command below.
 ~~~~~ 
-$ ./sorting.out
+./sorting.out
 ~~~~~
+
+After the execution, you will see a menu to select the array type(sorted, reversed, random). Enter the number of your selection. It will create the array files in the folder called `files`. Then, print the performance results to the console.
+
+## Example execution
+
+|||||
+|-|-|-|-|
+|![](img/0.png)|![](img/1.png)|![](img/2.png)|![](img/3.png)|
+
+[![asciicast](https://asciinema.org/a/252672.svg)](https://asciinema.org/a/252672)
+
