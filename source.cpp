@@ -1,6 +1,7 @@
 /******************************************
 *This program is written by Berk Cetinsaya*
 ************September 27, 2016*************
+***********Edited:June 19, 2019************
 ******************************************/
 
 #include <iostream>
@@ -14,12 +15,13 @@ const int n = 10000;
 int B[n], S[n], I[n], H[n], M[n], Q[n];
 int tempBforBub, tempBforSel, tempBforIns, tempBforHea, tempBforHeap, tempBforMer[n];
 
-void bubble(){
+void bubble()
+{
 	for (int x = 0; x < n; x++)
 	{
-		for (int y = 0; y<n - 1; y++)
+		for (int y = 0; y < n - 1; y++)
 		{
-			if (B[y]>B[y + 1])
+			if (B[y] > B[y + 1])
 			{
 				tempBforBub = B[y + 1];
 				B[y + 1] = B[y];
@@ -29,13 +31,14 @@ void bubble(){
 	}
 }
 
-void selection(){
+void selection()
+{
 	for (int x = 0; x < n; x++)
 	{
 		int index_of_min = x;
-		for (int y = x; y<n; y++)
+		for (int y = x; y < n; y++)
 		{
-			if (S[index_of_min]>S[y])
+			if (S[index_of_min] > S[y])
 			{
 				index_of_min = y;
 			}
@@ -46,11 +49,14 @@ void selection(){
 	}
 }
 
-void insertion(){
+void insertion()
+{
 	int j;
-	for (int i = 0; i < n; i++){
+	for (int i = 0; i < n; i++)
+	{
 		j = i;
-		while (j > 0 && I[j] < I[j - 1]){
+		while (j > 0 && I[j] < I[j - 1])
+		{
 			tempBforIns = I[j];
 			I[j] = I[j - 1];
 			I[j - 1] = tempBforIns;
@@ -59,7 +65,8 @@ void insertion(){
 	}
 }
 
-void max_heapify(int x[], int i, int num){
+void max_heapify(int x[], int i, int num)
+{
 	int j;
 	tempBforHea = x[i];
 	j = 2 * i;
@@ -79,7 +86,8 @@ void max_heapify(int x[], int i, int num){
 	return;
 }
 
-void build_maxheap(int x[], int num){
+void build_maxheap(int x[], int num)
+{
 	int i;
 	for (i = n / 2; i >= 1; i--)
 	{
@@ -87,7 +95,8 @@ void build_maxheap(int x[], int num){
 	}
 }
 
-void heapsort(int x[], int num){
+void heapsort(int x[], int num)
+{
 	int i, tempBforHeap;
 	for (i = num; i >= 2; i--)
 	{
@@ -98,20 +107,25 @@ void heapsort(int x[], int num){
 	}
 }
 
-int partition(int *arr, const int left, const int right){
+int partition(int *arr, const int left, const int right)
+{
 	const int mid = left + (right - left) / 2;
 	const int pivot = arr[mid];
 	swap(arr[mid], arr[left]);
 	int i = left + 1;
 	int j = right;
-	while (i <= j) {
-		while (i <= j && arr[i] <= pivot) {
+	while (i <= j)
+	{
+		while (i <= j && arr[i] <= pivot)
+		{
 			i++;
 		}
-		while (i <= j && arr[j] > pivot) {
+		while (i <= j && arr[j] > pivot)
+		{
 			j--;
 		}
-		if (i < j) {
+		if (i < j)
+		{
 			swap(arr[i], arr[j]);
 		}
 	}
@@ -119,8 +133,10 @@ int partition(int *arr, const int left, const int right){
 	return i - 1;
 }
 
-void quicksort(int *arr, const int left, const int right, const int sz){
-	if (left >= right) {
+void quicksort(int *arr, const int left, const int right, const int sz)
+{
+	if (left >= right)
+	{
 		return;
 	}
 	int part = partition(arr, left, right);
@@ -128,40 +144,51 @@ void quicksort(int *arr, const int left, const int right, const int sz){
 	quicksort(arr, part + 1, right, sz);
 }
 
-void Merge(int a[], int low, int mid, int high){
+void Merge(int a[], int low, int mid, int high)
+{
 	int i = low, j = mid + 1, k = low, s;
 
-	while (i <= mid && j <= high){
-		if (a[i] < a[j]){
+	while (i <= mid && j <= high)
+	{
+		if (a[i] < a[j])
+		{
 			tempBforMer[k] = a[i];
 			i++;
 		}
-		else{
+		else
+		{
 			tempBforMer[k] = a[j];
 			j++;
 		}
 		k++;
 	}
-	if (i > mid){
-		for (s = j; s <= high; s++){
+	if (i > mid)
+	{
+		for (s = j; s <= high; s++)
+		{
 			tempBforMer[k] = a[s];
 			k++;
 		}
 	}
-	else{
-		for (s = i; s <= mid; s++){
+	else
+	{
+		for (s = i; s <= mid; s++)
+		{
 			tempBforMer[k] = a[s];
 			k++;
 		}
 	}
-	for (k = low; k <= high; k++){
+	for (k = low; k <= high; k++)
+	{
 		a[k] = tempBforMer[k];
 	}
 }
 
-void MergeSort(int a[], int low, int high){
+void MergeSort(int a[], int low, int high)
+{
 	int mid;
-	if (low < high){
+	if (low < high)
+	{
 		mid = (low + high) / 2;
 		MergeSort(a, low, mid);
 		MergeSort(a, mid + 1, high);
@@ -169,24 +196,27 @@ void MergeSort(int a[], int low, int high){
 	}
 }
 
-void ran(){
+void ran()
+{
 	srand((unsigned)time(0));
 	ofstream FS, FB, FI, FM, FQ, FH;
 
-	FS.open("files/arrayS.txt", ios::trunc);
-	FB.open("files/arrayB.txt", ios::trunc);
-	FI.open("files/arrayI.txt", ios::trunc);
-	FM.open("files/arrayM.txt", ios::trunc);
-	FQ.open("files/arrayQ.txt", ios::trunc);
-	FH.open("files/arrayH.txt", ios::trunc);
-	for (int i = 0; i < n; i++){
-		B[i] = (rand() % 10000) + 1;
+	FS.open("files/random/arrayS.txt", ios::trunc);
+	FB.open("files/random/arrayB.txt", ios::trunc);
+	FI.open("files/random/arrayI.txt", ios::trunc);
+	FM.open("files/random/arrayM.txt", ios::trunc);
+	FQ.open("files/random/arrayQ.txt", ios::trunc);
+	FH.open("files/random/arrayH.txt", ios::trunc);
+	for (int i = 0; i < n; i++)
+	{
+		B[i] = (rand() % n) + 1;
 		S[i] = B[i];
 		I[i] = B[i];
 		H[i] = B[i];
 		M[i] = B[i];
 		Q[i] = B[i];
-		if (i % 10 != 0){
+		if (i % 10 != 0)
+		{
 			FS << S[i] << " ";
 			FB << B[i] << " ";
 			FI << I[i] << " ";
@@ -194,7 +224,8 @@ void ran(){
 			FQ << Q[i] << " ";
 			FH << H[i] << " ";
 		}
-		else{
+		else
+		{
 			FI << I[i] << " " << endl;
 			FS << S[i] << " " << endl;
 			FB << B[i] << " " << endl;
@@ -210,26 +241,28 @@ void ran(){
 	FM.close();
 	FQ.close();
 	FH.close();
-
 }
 
-void sorted(){
+void sorted()
+{
 	ofstream FS, FB, FI, FM, FQ, FH;
 
-	FS.open("files/sortarrayS.txt", ios::trunc);
-	FB.open("files/sortarrayB.txt", ios::trunc);
-	FI.open("files/sortarrayI.txt", ios::trunc);
-	FM.open("files/sortarrayM.txt", ios::trunc);
-	FQ.open("files/sortarrayQ.txt", ios::trunc);
-	FH.open("files/sortarrayH.txt", ios::trunc);
-	for (int i = 0; i < n; i++){
+	FS.open("files/sorted/sortarrayS.txt", ios::trunc);
+	FB.open("files/sorted/sortarrayB.txt", ios::trunc);
+	FI.open("files/sorted/sortarrayI.txt", ios::trunc);
+	FM.open("files/sorted/sortarrayM.txt", ios::trunc);
+	FQ.open("files/sorted/sortarrayQ.txt", ios::trunc);
+	FH.open("files/sorted/sortarrayH.txt", ios::trunc);
+	for (int i = 0; i < n; i++)
+	{
 		B[i] = i;
 		S[i] = B[i];
 		I[i] = B[i];
 		H[i] = B[i];
 		M[i] = B[i];
 		Q[i] = B[i];
-		if (i % 10 != 0){
+		if (i % 10 != 0)
+		{
 			FS << S[i] << " ";
 			FB << B[i] << " ";
 			FI << I[i] << " ";
@@ -237,7 +270,8 @@ void sorted(){
 			FQ << Q[i] << " ";
 			FH << H[i] << " ";
 		}
-		else{
+		else
+		{
 			FI << I[i] << " " << endl;
 			FS << S[i] << " " << endl;
 			FB << B[i] << " " << endl;
@@ -255,27 +289,31 @@ void sorted(){
 	FH.close();
 }
 
-void reversed(){
+void reversed()
+{
 	ofstream FS, FB, FI, FM, FQ, FH;
 
-	FS.open("files/revarrayS.txt", ios::trunc);
-	FB.open("files/revarrayB.txt", ios::trunc);
-	FI.open("files/revarrayI.txt", ios::trunc);
-	FM.open("files/revarrayM.txt", ios::trunc);
-	FQ.open("files/revarrayQ.txt", ios::trunc);
-	FH.open("files/revarrayH.txt", ios::trunc);
-	for (int i = 0; i < n; i++){
+	FS.open("files/reversed/revarrayS.txt", ios::trunc);
+	FB.open("files/reversed/revarrayB.txt", ios::trunc);
+	FI.open("files/reversed/revarrayI.txt", ios::trunc);
+	FM.open("files/reversed/revarrayM.txt", ios::trunc);
+	FQ.open("files/reversed/revarrayQ.txt", ios::trunc);
+	FH.open("files/reversed/revarrayH.txt", ios::trunc);
+	for (int i = 0; i < n; i++)
+	{
 		B[i] = i;
 	}
 	sort(B, B + n, greater<int>());
-	for (int i = 0; i < n; i++){
+	for (int i = 0; i < n; i++)
+	{
 		S[i] = B[i];
 		I[i] = B[i];
 		H[i] = B[i];
 		M[i] = B[i];
 		Q[i] = B[i];
 
-		if (i % 10 != 0){
+		if (i % 10 != 0)
+		{
 			FS << S[i] << " ";
 			FB << B[i] << " ";
 			FI << I[i] << " ";
@@ -283,7 +321,8 @@ void reversed(){
 			FQ << Q[i] << " ";
 			FH << H[i] << " ";
 		}
-		else{
+		else
+		{
 			FI << I[i] << " " << endl;
 			FS << S[i] << " " << endl;
 			FB << B[i] << " " << endl;
@@ -301,35 +340,44 @@ void reversed(){
 	FH.close();
 }
 
-int main(){
+int main()
+{
 	int in, counter = 0;
 startx:
 
-	cout << "-----------------------------\nFor random 1\n"
-		"For sorted 2\n"
-		"For reversed 3\n"
-		"For exit 0\n";
+	cout << "-----------------------------\n"
+			"Please select the array type:\n"
+			"1) Random\n"
+			"2) Sorted\n"
+			"3) Reversed\n"
+			"0) Exit\n";
+
 	cin >> in;
 
-	if (in == 1){
+	if (in == 1)
+	{
 		counter++;
 		ran();
 		cout << "processing" << endl;
 	}
-	else if (in == 2){
+	else if (in == 2)
+	{
 		counter++;
 		sorted();
 		cout << "processing" << endl;
 	}
-	else if (in == 3){
+	else if (in == 3)
+	{
 		counter++;
 		reversed();
 		cout << "processing" << endl;
 	}
-	else if (in == 0){
+	else if (in == 0)
+	{
 		return 0;
 	}
-	else goto startx;
+	else
+		goto startx;
 
 	clock_t startbubble = clock();
 	bubble();
@@ -344,10 +392,11 @@ startx:
 	clock_t startinsertion = clock();
 	insertion();
 	double durationinsertion = (clock() - startinsertion) / (double)CLOCKS_PER_SEC;
-	if(durationinsertion > 0.0003)
+	if (durationinsertion > 0.0001)
 		cout << "Insertion: " << durationinsertion << '\n';
 	else
-		cout << "Insertion: " << "Almost 0" << '\n';
+		cout << "Insertion: "
+			 << "Less than 0.0001" << '\n';
 
 	clock_t startquick = clock();
 	int sz = sizeof(Q) / sizeof(Q[0]);
@@ -368,5 +417,4 @@ startx:
 
 	goto startx;
 	return 0;
-
 }
