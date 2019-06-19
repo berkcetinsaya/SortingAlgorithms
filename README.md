@@ -21,10 +21,16 @@ This README file divided into three part. In the first part, I am going to expla
 > - Merge sort
 
 
+|a|a|
+|--|--|
+|&nbsp;&nbsp;&nbsp;&nbsp;
+First of all, I would like to start with the bubble sort and explain my code. For example, we have an array that includes five numbers “4 2 5 8 6“. Now, there are two for loops and one if statement. If statement checks that an index of the array is greater than the following index. If it is, they swap their positions and continue to next.|![bubble_sort][bubble_sort] |
+|aa|aa|
+
 
 <table border="1">
 <tr>
-<td style="width:30%;text-align: justify">
+<td style="width:50%;text-align: justify">
 
 &nbsp;&nbsp;&nbsp;&nbsp;
 First of all, I would like to start with the bubble sort and explain my code. For example, we have an array that includes five numbers “4 2 5 8 6“. Now, there are two for loops and one if statement. If statement checks that an index of the array is greater than the following index. If it is, they swap their positions and continue to next.
