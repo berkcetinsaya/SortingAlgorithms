@@ -22,10 +22,14 @@ This README file divided into three part. In the first part, I am going to expla
 
 
 
-<table border="2">
+<table border="1">
 <tr>
-<td style="width:50%;">&nbsp;&nbsp;&nbsp;&nbsp;
-First of all, I would like to start with the bubble sort and explain my code. For example, we have an array that includes five numbers “4 2 5 8 6“. Now, there are two for loops and one if statement. If statement checks that an index of the array is greater than the following index. If it is, they swap their positions and continue to next.</td>
+<td style="width:30%;text-align: justify">
+
+&nbsp;&nbsp;&nbsp;&nbsp;
+First of all, I would like to start with the bubble sort and explain my code. For example, we have an array that includes five numbers “4 2 5 8 6“. Now, there are two for loops and one if statement. If statement checks that an index of the array is greater than the following index. If it is, they swap their positions and continue to next.
+
+</td>
 <td style="width:50%;"> 
 
 ![bubble_sort][bubble_sort] 
