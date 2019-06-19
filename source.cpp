@@ -180,7 +180,7 @@ void ran(){
 	FQ.open("files/arrayQ.txt", ios::trunc);
 	FH.open("files/arrayH.txt", ios::trunc);
 	for (int i = 0; i < n; i++){
-		B[i] = (rand() % 10000) + 1;
+		B[i] = (rand() % n) + 1;
 		S[i] = B[i];
 		I[i] = B[i];
 		H[i] = B[i];
@@ -305,10 +305,13 @@ int main(){
 	int in, counter = 0;
 startx:
 
-	cout << "-----------------------------\nFor random 1\n"
-		"For sorted 2\n"
-		"For reversed 3\n"
-		"For exit 0\n";
+	cout << "-----------------------------\n"
+	"Please select the array type:\n"
+	"1) Random\n"
+	"2) Sorted\n"
+	"3) Reversed\n"
+	"0) Exit\n";
+
 	cin >> in;
 
 	if (in == 1){
@@ -344,10 +347,10 @@ startx:
 	clock_t startinsertion = clock();
 	insertion();
 	double durationinsertion = (clock() - startinsertion) / (double)CLOCKS_PER_SEC;
-	if(durationinsertion > 0.0003)
+	if(durationinsertion > 0.0001)
 		cout << "Insertion: " << durationinsertion << '\n';
 	else
-		cout << "Insertion: " << "Almost 0" << '\n';
+		cout << "Insertion: " << "Less than 0.0001" << '\n';
 
 	clock_t startquick = clock();
 	int sz = sizeof(Q) / sizeof(Q[0]);
