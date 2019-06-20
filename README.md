@@ -271,8 +271,8 @@ After the execution, you will see a menu to select the array type (sorted, rever
 
 ## Example execution
 
-|                |                |                |                |
-| -------------- | -------------- | -------------- | -------------- |
+|      Menu      |    Option 1    |    Option 2    |    Option 3    |
+| :------------: | :------------: | :------------: | :------------: |
 | ![](img/0.png) | ![](img/1.png) | ![](img/2.png) | ![](img/3.png) |
 
 
