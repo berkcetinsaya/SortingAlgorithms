@@ -1,14 +1,12 @@
 # Sorting Algorithms
 
-<p style="text-align:justify;"> 
+<div style="text-align: justify"> 
 
 Analysis of Algorithms is the area of computer science that provides tools to analyze the efficiency of different methods of solutions.
 
 It recognizes limitations of various algorithms for solving a problem, to understand relationship between problem size and running time, to learn how to analyze an algorithm's running time without coding it, to learn techniques for writing more efficient code and to recognize bottlenecks in code as well as which parts of code are easiest to optimize.
 
 This README file divided into three part. In the first part, I am going to explain the algorithms and complexities of the sorting algorithms such as the best, worst and average cases. Secondly, I will show you a table which contains the average execution times with maximum and minimum times. In the last part, I will leave some comments about efficiency of the sorting algorithms.
-
-</p>
 
 > #### The algorithms used in this project:
 >
@@ -217,7 +215,7 @@ Additionally, I would like to show you a table which includes time complexities.
 
 Here is a table containing execution times. I divided that table into three blocks. The first one is for randomly selected 10000 numbers. The second one is for already sorted 10000 numbers such as 0, 1, 2, 3, 4, 5... etc. The last one for reversed sorted 10000 numbers such as 9999, 9998, 9997... etc.
 
-<p style="text-align:center;"><b>Randomly selected numbers</b></p>
+<p align="center"><b>Randomly selected numbers</b></p>
 
 |                |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |  10   |  Average  |
 | :------------: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :-------: |
@@ -229,7 +227,7 @@ Here is a table containing execution times. I divided that table into three bloc
 |   Heap sort    | 0.002 | 0.002 | 0.002 | 0.002 | 0.002 | 0.002 | 0.001 | 0.002 | 0.006 | 0.002 | **0.002** |
 
 
-<p style="text-align:center;"><b>Sorted numbers</b></p>
+<p align="center"><b>Sorted numbers</b></p>
 
 |                |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |  10   |  Average  |
 | :------------: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :-------: |
@@ -241,7 +239,7 @@ Here is a table containing execution times. I divided that table into three bloc
 |   Heap sort    | 0.001 | 0.002 | 0.001 | 0.002 | 0.002 | 0.002 | 0.002 | 0.002 | 0.002 | 0.002 | **0.002** |
 
 
-<p style="text-align:center;"><b>Sorted in reversed order numbers</b></p>
+<p align="center"><b>Sorted in reversed order numbers</b></p>
 
 |                |   1   |   2   |   3   |   4   |   5   |   6   |   7   |   8   |   9   |  10   |  Average  |
 | :------------: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :-------: |
@@ -279,5 +277,5 @@ After the execution, you will see a menu to select the array type (sorted, rever
 
 
 <p align="center">
-  <img width="460" height="300" src="https://asciinema.org/a/252672.svg" href="https://asciinema.org/a/252672.svg">
+  <a href="https://asciinema.org/a/252672"><img src="https://asciinema.org/a/252672.svg"></a>
 </p>
