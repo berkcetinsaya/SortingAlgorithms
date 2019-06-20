@@ -1,6 +1,6 @@
 # Sorting Algorithms
 
-<p align="justify"> 
+<p style="text-align:justify;"> 
 
 Analysis of Algorithms is the area of computer science that provides tools to analyze the efficiency of different methods of solutions.
 
