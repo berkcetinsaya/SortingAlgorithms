@@ -279,3 +279,7 @@ After the execution, you will see a menu to select the array type (sorted, rever
 <p align="center">
   <a href="https://asciinema.org/a/252672"><img src="https://asciinema.org/a/252672.svg"></a>
 </p>
+
+## Limitations
+
+There is no limitations. You are free to use this project :)
