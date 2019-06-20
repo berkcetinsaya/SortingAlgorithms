@@ -198,7 +198,7 @@ After that, start to sort this array (10, 8, 9, 6, 7, 5, 4, 3).
 | 3, **4**                        | delete 4                              | (4,5,6,7,8,9,10)   |
 | **3**                           | delete 3                              | (3,4,5,6,7,8,9,10) |
 
-Array is sorted 3,4,5,6,7,8,9,10.
+Array is sorted 3, 4, 5, 6, 7, 8, 9, 10.
 
 ## **Results**
 
@@ -213,7 +213,7 @@ Additionally, I would like to show you a table which includes time complexities.
 |   Quick sort   |      O(n log(n))      |       O(n log(n))        |         O(n^2)         |
 |   Heap sort    |      O(n log(n))      |       O(n log(n))        |      O(n log(n))       |
 
-Here is a table containing execution times. I divided that table into three blocks. The first one is for randomly selected 10000 numbers. The second one is for already sorted 10000 numbers such as 0,1,2,3,4,5... etc. The last one for reversed sorted 10000 numbers such as 9999,9998,9997... etc.
+Here is a table containing execution times. I divided that table into three blocks. The first one is for randomly selected 10000 numbers. The second one is for already sorted 10000 numbers such as 0, 1, 2, 3, 4, 5... etc. The last one for reversed sorted 10000 numbers such as 9999, 9998, 9997... etc.
 
 <p style="text-align:center;"><b>Randomly selected numbers</b></p>
 
@@ -275,8 +275,7 @@ After the execution, you will see a menu to select the array type (sorted, rever
 | -------------- | -------------- | -------------- | -------------- |
 | ![](img/0.png) | ![](img/1.png) | ![](img/2.png) | ![](img/3.png) |
 
-<div style="text-align:center">
 
-[![asciicast](https://asciinema.org/a/252672.svg)](https://asciinema.org/a/252672)
-
-</div>
+<p align="center">
+  <img width="460" height="300" src="https://asciinema.org/a/252672.svg" href="https://asciinema.org/a/252672.svg">
+</p>
