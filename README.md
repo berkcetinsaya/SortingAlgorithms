@@ -1,6 +1,6 @@
 # Sorting Algorithms
 
-<div style="text-align: justify"> 
+<p align="justify"> 
 
 Analysis of Algorithms is the area of computer science that provides tools to analyze the efficiency of different methods of solutions.
 
@@ -8,12 +8,14 @@ It recognizes limitations of various algorithms for solving a problem, to unders
 
 This README file divided into three part. In the first part, I am going to explain the algorithms and complexities of the sorting algorithms such as the best, worst and average cases. Secondly, I will show you a table which contains the average execution times with maximum and minimum times. In the last part, I will leave some comments about efficiency of the sorting algorithms.
 
+</p>
+
 > #### The algorithms used in this project:
 >
 > - [Bubble sort](###-**Bubble-sort**)
 > - [Selection sort](###-**Selection-sort**)
 > - [Insertion sort](###-**Insertion-sort**)
-> - [Merge sort ̰](###-**Merge-sort**)
+> - [Merge sort](###-**Merge-sort**)
 > - [Quick sort](###-**Quick-sort**)
 > - [Heap sort](###-**Heap-sort**)
 
